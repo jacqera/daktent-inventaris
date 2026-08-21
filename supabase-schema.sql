@@ -1,0 +1,11 @@
+create table public.boxes (id integer primary key, name text not null, description text not null default '', stalling text not null);
+create table public.items (id uuid primary key default gen_random_uuid(), name text not null, description text not null default '', quantity integer not null default 1 check(quantity > 0), category text not null, box_number integer references public.boxes(id), storage_location text not null, travel_location text not null, note text not null default '', departure boolean not null default false, checked boolean not null default false, stock text not null default 'n.v.t.', photos jsonb not null default '[]', created_at timestamptz not null default now(), updated_at timestamptz not null default now());
+create index idx_items_box on public.items(box_number);create index idx_items_category on public.items(category);create index idx_items_departure on public.items(departure) where departure=true;
+alter table public.boxes enable row level security;alter table public.items enable row level security;
+create policy "authenticated boxes" on public.boxes for all to authenticated using (true) with check (true);
+create policy "authenticated items" on public.items for all to authenticated using (true) with check (true);
+insert into storage.buckets(id,name,public) values('inventory-photos','inventory-photos',false) on conflict(id) do nothing;
+create policy "authenticated photos read" on storage.objects for select to authenticated using(bucket_id='inventory-photos');
+create policy "authenticated photos write" on storage.objects for insert to authenticated with check(bucket_id='inventory-photos');
+create policy "authenticated photos update" on storage.objects for update to authenticated using(bucket_id='inventory-photos');
+create policy "authenticated photos delete" on storage.objects for delete to authenticated using(bucket_id='inventory-photos');
