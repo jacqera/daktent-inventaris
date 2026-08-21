@@ -4,3 +4,4 @@ html,body{min-height:100%;background:#09090c url('background.jpg') center center
 @media(prefers-reduced-data:reduce){html,body,#app{background-image:none}}
 .box-detail{margin-bottom:16px;padding:18px;background:rgba(17,17,22,.9);border:1px solid #3a2934;border-radius:20px;backdrop-filter:blur(10px)}
 .box-detail h2{margin:0 0 5px;font-size:25px}.box-detail>p:not(.eyebrow){color:#aaa;margin-bottom:15px}.box-photos{margin-bottom:0}.photo-add small{display:block;font-size:10px;font-weight:800}
+.current-location{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin:0 0 15px;padding:11px 13px;background:#24242b;border-radius:13px;font-size:12px;font-weight:900}.current-location select{min-height:38px;background:#111116;color:#fff;border:1px solid #44444d;border-radius:10px;padding:0 10px}.detail dl .current{border-color:#65304d;background:#24141e}.detail dl .current dt{color:#ff2d95}
