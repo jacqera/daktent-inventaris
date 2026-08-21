@@ -1,4 +1,4 @@
-import {store} from './api.js';import {auth} from './auth.js';
+import {store} from './api.js?v=14';import {auth} from './auth.js?v=14';
 const $=s=>document.querySelector(s),app=$('#app');let state={view:'home',data:null,query:'',filters:{box:'',category:'',location:'',departure:'',stock:''},editing:null};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const icon={home:'⌂',inventory:'▦',check:'✓',settings:'⚙',loading:'⚖'};
