@@ -1,4 +1,4 @@
-const CACHE='daktent-v14';const FILES=['./','index.html','styles.css','loading.css','login.css','background.css','background.jpg','app.js?v=14','api.js?v=14','auth.js?v=14','storage.js?v=14','seed.js?v=14','config.js?v=14','manifest.webmanifest','assets/icon.svg'];
+const CACHE='daktent-v15';const FILES=['./','index.html','styles.css','loading.css','complete.css','login.css','background.css','background.jpg','app.js?v=15','api.js?v=15','auth.js?v=15','storage.js?v=15','seed.js?v=15','config.js?v=15','manifest.webmanifest','assets/icon.svg'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{const c=r.clone();caches.open(CACHE).then(x=>x.put(e.request,c));return r}).catch(()=>caches.match(e.request).then(r=>r||caches.match('./'))))});
