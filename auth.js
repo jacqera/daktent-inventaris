@@ -1,4 +1,4 @@
-import {CONFIG} from './config.js?v=16';
+import {CONFIG} from './config.js?v=20';
 const KEY='daktent-supabase-session';const base=CONFIG.supabaseUrl.replace(/\/$/,'');
 function save(session){if(session){localStorage.setItem(KEY,JSON.stringify(session));localStorage.setItem('sb-token',session.access_token)}else{localStorage.removeItem(KEY);localStorage.removeItem('sb-token')}}
 async function call(path,body){const r=await fetch(`${base}/auth/v1/${path}`,{method:'POST',headers:{apikey:CONFIG.supabasePublishableKey,'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await r.json().catch(()=>({}));if(!r.ok)throw new Error(data.error_description||data.msg||data.message||'Aanmelden mislukt');return data}
