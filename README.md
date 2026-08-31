@@ -1,6 +1,6 @@
 # Daktent Inventaris PWA
 
-Zero-dependency, mobile-first inventarisapp. De lokale demomodus werkt volledig in de browser en bewaart data in `localStorage`. Foto's worden vóór opslag verkleind. De datastore achter `api.js` kan via `config.js` worden omgeschakeld naar Supabase REST.
+Zero-dependency, mobile-first inventarisapp met centrale Supabase REST-opslag. Foto's worden vóór upload verkleind en privé in Supabase Storage opgeslagen. De app werkt zonder npm, framework of build-stap.
 
 ## Lokaal openen
 
@@ -8,10 +8,20 @@ Serveer deze map met een eenvoudige statische webserver. Open daarna het getoond
 
 ## Supabase koppelen
 
-1. Maak een Supabase-project en voer `supabase-schema.sql` uit in de SQL Editor.
+1. Voer de schema- en opeenvolgende migratiebestanden uit in de SQL Editor.
 2. Activeer e-mail/wachtwoord-authenticatie en maak de gezamenlijke gebruiker aan.
-3. Vul alleen de project-URL en publishable/anon key in `config.js` in. Gebruik nooit de service-role key.
-4. De resterende auth- en Storage-HTTP-aanroepen kunnen daarna worden geactiveerd; de database-adapter staat al in `api.js`.
+3. Vul alleen de project-URL en publishable key in `config.js` in. Gebruik nooit een service-role key.
+4. Publiceer de bestanden rechtstreeks via GitHub Pages.
+
+## Versie 21
+
+- actuele kogeldruk wordt vóór een beladingsmoment expliciet gevraagd;
+- historische metingen worden nooit automatisch als actueel gebruikt;
+- off-gridplanning voor water, stroom, solar en gas;
+- pakstatus per reis van `Nog thuis` tot `Gecontroleerd`;
+- herstelbare verwijdering via de prullenbak;
+- zelf een hoofdfoto per artikel kiezen;
+- trailerplattegrond met zonegewichten en bestaande KT-EU2/Symbioz-limieten.
 
 ## Bestanden
 

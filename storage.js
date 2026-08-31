@@ -1,4 +1,4 @@
-import {CONFIG} from './config.js?v=20';import {auth} from './auth.js?v=20';
+import {CONFIG} from './config.js?v=21';import {auth} from './auth.js?v=21';
 const base=CONFIG.supabaseUrl.replace(/\/$/,'');
 async function headers(type){const s=await auth.refresh();if(!s)throw new Error('Je sessie is verlopen');return{apikey:CONFIG.supabasePublishableKey,Authorization:`Bearer ${s.access_token}`,...(type?{'Content-Type':type}:{})}}
 const objectUrl=path=>`${base}/storage/v1/object/${CONFIG.storageBucket}/${path.split('/').map(encodeURIComponent).join('/')}`;
