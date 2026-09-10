@@ -40,4 +40,4 @@ async function compress(file){const img=await createImageBitmap(file);const max=
 export const store=new SupabaseStore();
 const originalSnapshot=store.snapshot.bind(store);
 store.snapshot=async()=>{const [data,preparationMarks]=await Promise.all([originalSnapshot(),store.request('preparation_marks?select=*')]);return {...data,preparationMarks}};
-store.setBoxCurrentLocation=async(boxId,location)=>{const data=await store.snapshot();const {moveBoxPlan}=await import('./preparation.js?v=23');await store.request('rpc/preparation_move',{method:'POST',body:JSON.stringify({plan:moveBoxPlan(data,Number(boxId),location)})})};
+store.setBoxCurrentLocation=async(boxId,location)=>{const data=await store.snapshot();const {moveBoxPlan}=await import('./preparation.js?v=24');await store.request('rpc/preparation_move',{method:'POST',body:JSON.stringify({plan:moveBoxPlan(data,Number(boxId),location)})})};
