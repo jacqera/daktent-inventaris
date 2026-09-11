@@ -1,4 +1,4 @@
-import {createArticlePhotos} from './article-photos.js?fix=1';
+import {createArticlePhotos} from './article-photos.js?fix=2';
 const articlePhotos=createArticlePhotos({getItem:id=>state.data.items.find(x=>x.id===id),store,reload:load,toast,openPhoto:openLightbox});
 import {store} from './api.js?v=23';
 import {createPreparation} from './preparation.js?v=23';
