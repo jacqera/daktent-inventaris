@@ -1,9 +1,9 @@
 import {createArticlePhotos} from './article-photos.js?fix=2';
 const articlePhotos=createArticlePhotos({getItem:id=>state.data.items.find(x=>x.id===id),store,reload:load,toast,openPhoto:openLightbox});
 import {store} from './api.js?v=23';
-import {createPreparation} from './preparation.js?history=1';
-import {createNavigation} from './navigation.js?history=1';
-const preparation=createPreparation({getState:()=>state,store,header,nav,search,scopeBar,render,load,toast});
+import {createPreparation} from './preparation.js?history=2';
+import {createNavigation} from './navigation.js?history=2';
+const preparation=createPreparation({getState:()=>state,store,header,nav,search,scopeBar,render,load,toast,openPhoto:src=>navigation.openPhoto(src)});
 const navigation=createNavigation({getState:()=>state,preparation,render,store});
 import {auth} from './auth.js?v=21';
 const $=s=>document.querySelector(s),app=$('#app');let state={view:'home',data:null,query:'',filters:{box:'',category:'',location:'',departure:'',stock:'',current:''},editing:null,editingTrip:null,lastSync:null};
