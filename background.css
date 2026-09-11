@@ -8,3 +8,5 @@ html,body{min-height:100%;background:#09090c url('background.jpg') center center
 .box-detail .box-photos>button[data-box-photo]{flex:0 0 100%;width:100%;height:clamp(220px,65vw,300px);max-height:300px;min-height:0;display:block;padding:0;overflow:hidden;scroll-snap-align:start}
 .box-detail .box-photos>button[data-box-photo]>img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:center}
 .current-location{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin:0 0 15px;padding:11px 13px;background:#24242b;border-radius:13px;font-size:12px;font-weight:900}.current-location select{min-height:38px;background:#111116;color:#fff;border:1px solid #44444d;border-radius:10px;padding:0 10px}.detail dl .current{border-color:#65304d;background:#24141e}.detail dl .current dt{color:#ff2d95}
+
+.history-controls{display:flex;justify-content:space-between;gap:12px;margin:0 0 15px;position:relative}.history-controls button{min-height:44px;padding:11px 14px;border:1px solid #49414a;border-radius:12px;background:#24242d;color:white;font:inherit;cursor:pointer}.history-controls button:disabled{opacity:.35;cursor:default}
